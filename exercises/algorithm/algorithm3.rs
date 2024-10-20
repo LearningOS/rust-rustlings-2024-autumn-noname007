@@ -4,7 +4,7 @@
 	you can use bubble sorting, insertion sorting, heap sorting, etc.
 */
 
-fn sort<T>(array: &mut [T]){
+fn sort<T: std::cmp::PartialOrd>(array: &mut [T]){
     let n = array.len();
     for i in 0..n {
         for j in 0..n - i - 1 {

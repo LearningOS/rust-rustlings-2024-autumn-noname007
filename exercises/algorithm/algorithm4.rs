@@ -3,7 +3,6 @@
 	This problem requires you to implement a basic interface for a binary tree
 */
 
-//I AM NOT DONE
 use std::cmp::Ordering;
 use std::fmt::Debug;
 
@@ -54,7 +53,7 @@ where
         if self.root.is_none() {
             self.root = Some(Box::new(TreeNode::new(value)));
         }else {
-            let root_node = self.root.unwrap().as_mut();
+            let root_node = self.root.as_mut().unwrap();
             root_node.insert(value);
         }
     }
@@ -90,14 +89,14 @@ where
             if self.left.is_none() {
                 self.left = Some(Box::new(TreeNode::new(value)));
             }else{
-                let left = self.left.unwrap().as_mut();
+                let left = self.left.as_mut().unwrap();
                 left.insert(value);
             }
-        }else{
+        }else if self.value < value{
             if self.right.is_none() {
                 self.right = Some(Box::new(TreeNode::new(value)));
             }else{
-                let right = self.right.unwrap().as_mut();
+                let right = self.right.as_mut().unwrap();
                 right.insert(value);
             }
         }
